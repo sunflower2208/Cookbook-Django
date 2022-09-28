@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+My Cookbook
+{% endblock %}
+
+{% block content %}
+  {% if searched %}
+    <h1 class="mt-2"><i>Search results for: {{searched}}</i></h1>
+    <hr class="mt-0">
+    <br>
+
+    <h3>By recipe names:</h3>
+    {% for item in items_r%}
+      <p><a href="/{{item.id}}">{{item.name}}</a></p>
+    {% endfor %}
+
+    <br>
+    <h3>By ingredients:</h3>
+    {% for item in items_r%}
+      <p><a href="/{{item.id}}">{{item.recipes.name}}</a></p>
+    {% endfor %}
+
+  {% else %}
+    <h1>Ooops, You forgot to enter search items!</h1>
+  {% endif %}
+
+{% endblock %}

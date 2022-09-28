@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+<!--<img src="{% static 'main/spaghetti.jpg' %}" alt="Background photo">-->
+
+{% block title %}
+My Cookbook
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'main/css/style.css' %}">
+<body id='bg', style="background-image: url('{% static 'main/img/sushi.jpg' %}')";>
+    <h1 class="display-4" style="color: white">Welcome to my cookbook!</h1>
+    <p class="lead" style="color: white">It was created to help my figure out what to cook next when I am out of ideas.</p>
+</body>
+{% endblock %}

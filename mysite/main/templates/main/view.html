@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+
+{% block title %}All Recipes{% endblock %}
+
+{% block content %}
+  <h1 class="mt-2"><i>All recipes</i></h1>
+  <hr class="mt-0">
+  <br>
+  {% for item in recipes %}
+    <p><a href="/{{item.id}}">{{item.name}}</a></p>
+  {% endfor %}
+{% endblock %}

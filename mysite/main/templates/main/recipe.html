@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+
+{% block title %}View Recipe --- Cookbook {% endblock%}
+
+{% block content %}
+    <h1 class="mt-2"><i>{{r.name}}</i></h1>
+    <hr class="mt-0">
+    <br>
+    <div class="row">
+        <div class="col">
+            <h4>Ingredients:</h4>
+            <ul>
+                {% for item in r.ingredient_set.all %}
+                    <li>{{item.ingredient_name}}: {{item.quantity}} {{item.quantity_unit}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <h4>Steps:</h4>
+            {{r.steps}}
+        </div>
+    </div>
+{% endblock %}

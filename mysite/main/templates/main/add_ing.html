@@ -1,0 +1,39 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Ingredients --- Cookbook {% endblock%}
+
+{% block content %}
+    <h1 class="mt-2"><i>{{r.name}}</i></h1>
+    <hr class="mt-0">
+    <br>
+    <h4>Steps:</h4>
+    {{r.steps}}
+    <hr class="mt-0">
+    <br>
+    <h4>Ingredients:</h4>
+    <ul>
+        {% for item in r.ingredient_set.all %}
+            <li>{{item.ingredient_name}}: {{item.quantity}} {{item.quantity_unit}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <h4>Add ingredient:</h4>
+    <hr class="mt-0">
+
+    <div class="form-group">
+        <form method="POST" action="" class="form-group">
+            {% csrf_token %}
+            {{form | crispy}}
+            <h6><i>* Required</i></h6>
+            <button type="submit", name="newItem", value="newItem", class="btn btn-secondary">Add</button>
+        </form>
+        <form method="POST" action="" class="form-group">
+            {% csrf_token %}
+            <button type="submit", name="save", value="save", class="btn btn-secondary">Save Recipe</button>
+        </form>
+    </div>
+
+
+
+{% endblock %}
